@@ -7,11 +7,6 @@ export const UserSchema = new mongoose.Schema({
   },
   password: String,
   name: String,
-  title:String,
-  location:String,
-  yearsOfex:Number,
-  phonenumber:Number,
-  Qualification:String,
-
+ 
   
 });

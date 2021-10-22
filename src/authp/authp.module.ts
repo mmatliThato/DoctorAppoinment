@@ -4,24 +4,24 @@ import { JwtModule } from '@nestjs/jwt';
 import { MongooseModule } from '@nestjs/mongoose';
 import { PassportModule } from '@nestjs/passport';
 
-import { AuthController } from './auth.controller';
-import { AuthService } from './auth.service';
-import { UserSchema } from './schemas/user.schema';
-import { JwtStrategy } from './strategies/jwt-auth.strategy';
+import { AuthpController } from './authp.controller';
+import { AuthpService } from './authp.service';
+import { UserSchema } from './schema/user.schema';
+import { JwtStrategy } from './strategies/jwt-auth.guard';
 import { LocalStrategy } from './strategies/local.strategy';
 
 @Module({
   imports: [
     ConfigModule.forRoot(),
-    MongooseModule.forFeature([{ name: 'User', schema: UserSchema }]),
+    MongooseModule.forFeature([{ name: 'Patient', schema: UserSchema }]),
     PassportModule,
     JwtModule.register({
       secret: process.env.JWT_SECRET,
       signOptions: { expiresIn: '60s' },
     }),
   ],
-  providers: [AuthService, LocalStrategy, JwtStrategy],
-  controllers: [AuthController],
+  providers: [AuthpService, LocalStrategy, JwtStrategy],
+  controllers: [AuthpController],
  
 })
-export class AuthModule {}
+export class AuthpModule {}

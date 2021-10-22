@@ -9,18 +9,18 @@ import { User } from './interfaces/user.interface';
 
 
 @Injectable()
-export class AuthService {
+export class AuthpService {
   constructor(
-    @InjectModel('User') private userModel: Model<User>,
+    @InjectModel('Patient') private userModel: Model<User>,
     private jwtService: JwtService
   ) {}
 
   async signUp(authCredentialsDto: AuthCredentialsDto): Promise<void> {
-    const { username, password,name,location,title,phonenumber,yearsOfex,Qualification} = authCredentialsDto;
+    const { username, password,name} = authCredentialsDto;
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const user = new this.userModel({ username, password: hashedPassword,name,location,title,phonenumber,yearsOfex,Qualification});
+    const user = new this.userModel({ username, password: hashedPassword,name});
 
     try {
       await user.save();
@@ -35,16 +35,12 @@ export class AuthService {
   }
 
 
-  // Get a single Product
-  async getDoctor(docID: string): Promise<User> {
-    const doctor = await this.userModel.findById(docID); 
-    return doctor;
 
-  }
+
 
   
   async signIn(user: User) {
-    const payload = {username: user.username, sub: user._id ,name: user.name,title: user.title,  location: user.location,user,phonenumber: user.phonenumber,Qualification: user.Qualification};
+    const payload = {username: user.username, sub: user._id ,name: user.name};
     return {
       accessToken: this.jwtService.sign(payload),
     };
@@ -67,13 +63,5 @@ export class AuthService {
   }
   
 
-  async getallDoctors(): Promise<User[]> {
-
-    return await this.userModel.find()
-      
-    }
-    
   
- 
-
 }

@@ -1,7 +1,8 @@
 export class AppoinmentDto {
-    readonly email: string;
-  readonly appoinmentDate: Date;
-  readonly  name: string;
- 
-  readonly userId: string;
+   email: string;
+   appoinmentDate: String;
+    name: string;
+  userId: string;
+ status:string;
+   DoctorId:string
 }

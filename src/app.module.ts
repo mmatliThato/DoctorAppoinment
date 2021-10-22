@@ -6,6 +6,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { AppoinementModule } from './appoinement/appoinement.module';
+import { AuthpModule } from './authp/authp.module';
+
 
 
 
@@ -21,6 +23,9 @@ import { AppoinementModule } from './appoinement/appoinement.module';
     }),
     AuthModule,
     AppoinementModule,
+    AuthpModule,
+    
+
   ],
   controllers: [AppController],
   providers: [AppService],
