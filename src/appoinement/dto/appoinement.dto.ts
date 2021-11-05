@@ -6,3 +6,9 @@ export class AppoinmentDto {
  status:string;
    DoctorId:string
 }
+
+export class updateAppoinmentDto {
+  
+  status:string;
+ 
+}

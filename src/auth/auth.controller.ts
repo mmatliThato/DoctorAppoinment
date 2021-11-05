@@ -18,7 +18,7 @@ import { AuthCredentialsDto } from './dto/auth-credentials.dto';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
 import { LocalAuthGuard } from './guards/local-auth.guard';
 import { User } from './interfaces/user.interface';
-
+``
 @Controller('auth')
 export class AuthController {
   constructor(private authService: AuthService) {}

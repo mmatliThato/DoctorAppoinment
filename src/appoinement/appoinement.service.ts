@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import {AppoinmentDto} from './dto/appoinement.dto';
+import {AppoinmentDto, updateAppoinmentDto} from './dto/appoinement.dto';
 import {Appoinment} from './interfaces/appoinment.interface';
 
 @Injectable()
@@ -30,15 +30,17 @@ export class AppoinementService {
     return await this.appoinmentModel.find()
 
     }
-    
+  
+
+ 
+   // Put a single product
+   async update(userId1: string, createProductDTO: updateAppoinmentDto): Promise<Appoinment> {
+    const updatedProduct = await this.appoinmentModel.findOneAndUpdate({userId: userId1},{$set:{status:createProductDTO.status}})
+    //.findOne({DoctorId: DoctorId})
+                        //.findByIdAndUpdate(DoctorId, {createProductDTO}, {new: true});
+    return updatedProduct;
+}  
 
 
 
-
- // Put a single product
-//  async updateProduct(DoctorId: string, appoinment: AppoinmentDto): Promise<Appoinment> {
-//   const updatedProduct = await this.appoinmentModel
-//                       .findByIdAndUpdate(DoctorId, appoinment, {new: true});
-//   return updatedProduct;
-// }
 }
