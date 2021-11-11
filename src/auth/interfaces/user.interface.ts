@@ -10,6 +10,7 @@ export interface User extends Document {
    yearsOfex:number;
 phonenumber:number;
  Qualification:string
+ 
 }
 
 

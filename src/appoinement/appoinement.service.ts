@@ -5,6 +5,7 @@ import {AppoinmentDto, updateAppoinmentDto} from './dto/appoinement.dto';
 import {Appoinment} from './interfaces/appoinment.interface';
 
 @Injectable()
+
 export class AppoinementService {
     constructor(
         @InjectModel('Appoinment') private appoinmentModel: Model<Appoinment>
@@ -36,8 +37,7 @@ export class AppoinementService {
    // Put a single product
    async update(userId1: string, createProductDTO: updateAppoinmentDto): Promise<Appoinment> {
     const updatedProduct = await this.appoinmentModel.findOneAndUpdate({userId: userId1},{$set:{status:createProductDTO.status}})
-    //.findOne({DoctorId: DoctorId})
-                        //.findByIdAndUpdate(DoctorId, {createProductDTO}, {new: true});
+
     return updatedProduct;
 }  
 

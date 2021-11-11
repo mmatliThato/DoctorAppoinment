@@ -48,11 +48,7 @@ export class AppoinementController {
     }else{
         console.log(updatedProduct);
     }
-    //  if (!updatedProduct) throw new NotFoundException('appoinment does not exist!');
-    //  return res.status(HttpStatus.OK).json({
-    //      message: 'Oppoinment Updated Successfully',
-    //      updatedProduct 
-    //  });
+  
  }
    
     

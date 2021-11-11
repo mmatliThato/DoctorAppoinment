@@ -7,7 +7,7 @@ import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { AppoinementModule } from './appoinement/appoinement.module';
 import { AuthpModule } from './authp/authp.module';
-
+import { MulterModule } from '@nestjs/platform-express';
 
 
 
@@ -15,6 +15,10 @@ import { AuthpModule } from './authp/authp.module';
 
 @Module({
   imports: [
+
+    MulterModule.register({
+      dest: './files',
+    }),
     ConfigModule.forRoot(),
     MongooseModule.forRoot(process.env.MONGO_URI, {
       // useNewUrlParser: true,

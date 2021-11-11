@@ -12,6 +12,6 @@ export const UserSchema = new mongoose.Schema({
   yearsOfex:Number,
   phonenumber:Number,
   Qualification:String,
-
+  profileImage:String
   
 });
